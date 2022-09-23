@@ -1,0 +1,21 @@
+ID,Name,Email,City,State,Country,Title,Years of Experience,Summary,Soft Skills,Technical Skills,Experience
+1,Kunal Saxena,Kunal.saxena@gmail.com,Pune,Maharashtra,India,Backend Engineer,7,"Having 7+ years of experience in Polyglot Software development on various Web Applications using Java, Golang and Python.",Great at Communication,"OS: Linux, Windows, Mac OS","Giddh Accounting Software: Environment - Java 1.8, Microservices, Restful, AWS, Postgres, GIT 
+Description:  Cloud based Accounting software with features like Ledger books, Stock Management, 
+inventory management, GST filing, report generation, seamless integration with tally, quickbooks etc. 
+ 
+ Roles and Responsibility:  
+● Collection of business requirements  
+● Analysis of business requirements. 
+● Implementing API by using Spring boot. 
+● Participating in scrum meeting (Agile methodology). 
+● Deploy the code on client server. 
+● Writing Junit test case with Mockito. 
+● During development take care for Code coverage, Checkstyle and Sonar Qube issue. 
+● Run the Jenkins jobs."
+,,,,,,,,"Real time exposure on Core Java, Spring Boot, Hibernate, REST, microservices, SQL/NOSQL",Proficient Team Leading,"Programming Languages - Core Java, Advanced Java, Golang , Python",
+,,,,,,,,Having 2 years of experience in working on Golang and Python scripts.,,"Database - My SQL, Oracle, Postgres, Elasticsearch, DynamoDb ",
+,,,,,,,,Having 1+ years of experience in Chatbot development and NLP.,,"J2EE Technologies - Spring, JMS, AWS, JPA, Hibernate, Web service(RESTful), Spring Boot, 
+Microservices, MyBatis etc.",
+,,,,,,,,,,,
+2,Rayyan Hunerkar,rayyanhunerkar@gmail.com,Mumbai,Maharashtra,India,Backend Engineer,1,,Good Communication,"OS: Linux, Windows, Mac OS",Experience with RestFul Services
+,,,,,,,,,,"Programming Languages - Python, Java, C",
