@@ -17,25 +17,13 @@ func main() {
 	defer file.Close()
 	df := dataframe.ReadCSV(file)
 
-	IDs := getID(df)
-	fmt.Println(IDs)
+	ids := getID(df)
+	fmt.Println(ids)
 
 	df = fillna(df, "ID")
 
-	skills := []string{}
+	skills := extractData(df, 1)
 
-	for i := 0; i < len(df.Records())-1; i++ {
-		index, err := df.Col("ID").Elem(i).Int()
-		if err != nil {
-			log.Fatal(err)
-		}
-		if index == 1 {
-			if df.Col("Technical Skills").Elem(i).String() != "" {
-				value := df.Col("Technical Skills").Elem(i).String()
-				skills = append(skills, value)
-			}
-		}
-	}
 	fmt.Println(skills)
 }
 
@@ -66,4 +54,21 @@ func getID(df dataframe.DataFrame) []int {
 		}
 	}
 	return id
+}
+
+func extractData(df dataframe.DataFrame, id int) []string {
+	col := []string{}
+	for i := 0; i < len(df.Records())-1; i++ {
+		index, err := df.Col("ID").Elem(i).Int()
+		if err != nil {
+			log.Fatal(err)
+		}
+		if index == id {
+			if df.Col("Technical Skills").Elem(i).String() != "" {
+				value := df.Col("Technical Skills").Elem(i).String()
+				col = append(col, value)
+			}
+		}
+	}
+	return col
 }
