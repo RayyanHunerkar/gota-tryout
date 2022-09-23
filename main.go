@@ -30,7 +30,7 @@ func main() {
 			log.Fatal(err)
 		}
 		if index == 1 {
-			if df.Col("Soft Skills").Elem(i).String() != "" {
+			if df.Col("Technical Skills").Elem(i).String() != "" {
 				value := df.Col("Technical Skills").Elem(i).String()
 				skills = append(skills, value)
 			}
