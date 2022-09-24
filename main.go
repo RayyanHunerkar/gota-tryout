@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -22,9 +23,19 @@ func main() {
 
 	df = fillna(df, "ID")
 
-	skills := extractData(df, 1)
+	resume := make(map[string]interface{})
 
-	fmt.Println(skills)
+	resume["id"] = 1
+	resume["name"] = extractData(df, 1, "Name")
+	resume["summary"] = extractData(df, 1, "Summary")
+	resume["technical_skills"] = extractData(df, 1, "Technical Skills")
+
+	json_resume, err := json.Marshal(resume)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(json_resume))
 }
 
 func fillna(df dataframe.DataFrame, s string) dataframe.DataFrame {
@@ -56,7 +67,7 @@ func getID(df dataframe.DataFrame) []int {
 	return id
 }
 
-func extractData(df dataframe.DataFrame, id int) []string {
+func extractData(df dataframe.DataFrame, id int, s string) interface{} {
 	col := []string{}
 	for i := 0; i < len(df.Records())-1; i++ {
 		index, err := df.Col("ID").Elem(i).Int()
@@ -64,11 +75,14 @@ func extractData(df dataframe.DataFrame, id int) []string {
 			log.Fatal(err)
 		}
 		if index == id {
-			if df.Col("Technical Skills").Elem(i).String() != "" {
-				value := df.Col("Technical Skills").Elem(i).String()
+			if df.Col(s).Elem(i).String() != "" {
+				value := df.Col(s).Elem(i).String()
 				col = append(col, value)
 			}
 		}
+	}
+	if len(col) == 1 {
+		return col[0]
 	}
 	return col
 }
